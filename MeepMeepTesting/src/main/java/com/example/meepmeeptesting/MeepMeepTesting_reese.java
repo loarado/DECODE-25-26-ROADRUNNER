@@ -18,15 +18,13 @@ public class MeepMeepTesting_reese {
                 .setConstraints(42, 90, Math.toRadians(180), Math.toRadians(180), 15)
                 .build();
 
-        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-62, 38, Math.toRadians(0)))
-                        .strafeToLinearHeading(new Vector2d(-49.5,49.5),Math.toRadians(-55))
-                        //.waitSeconds(1)
-                //
-                        // .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
-                        //.splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
-                        //.strafeTo(new Vector2d(24,-44))
-                        //.waitSeconds(.5)
-                        //.strafeToLinearHeading(new Vector2d(48,-54),Math.toRadians(-45))
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-49.5, 49.5, Math.toRadians(-55)))
+                .waitSeconds(2)
+                .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
+                .splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
+                .strafeTo(new Vector2d(24,-44))
+                .waitSeconds(.5)
+                .strafeToLinearHeading(new Vector2d(48,-54),Math.toRadians(-45))
 
                 .build());
         myBot.setDimensions(15.5, 17);

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.MEET_1_AUTO;
 
+import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 
 // RR-specific imports
@@ -11,6 +12,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+
+import java.time.OffsetDateTime;
 
 public class Launcher {
 
@@ -35,5 +38,13 @@ public class Launcher {
     public Action launchOn(){
         return new launchOn();
     }
+    public class launchOff implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            launcher.setPower(0);
+            return false;
+        }
+    }
+    public Action launchOff() {return new launchOff();}
 
 }

@@ -24,8 +24,8 @@ public class RedObeliskAuto extends LinearOpMode {
             Actions.runBlocking(
                     drive.actionBuilder(beginPose)
                             .afterTime(1.25, launcher.launchOn())
-                            
-                            .waitSeconds(2)
+                            //add loader shit
+                            .waitSeconds(2)//change based on the time for launching
                             .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
                             .splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
                             .strafeTo(new Vector2d(24,-44))
