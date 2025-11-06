@@ -37,7 +37,7 @@ public class Loader {
 
         }
     }
-    public Action loaderOn() { return new loadOn(); }
+    public Action loadOn() { return new loadOn(); }
 
     public class loadOff implements Action {
         @Override

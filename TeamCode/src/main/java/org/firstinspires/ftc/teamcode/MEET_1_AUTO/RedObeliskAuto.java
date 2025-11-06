@@ -16,6 +16,7 @@ public class RedObeliskAuto extends LinearOpMode {
         Pose2d beginPose = new Pose2d(-49.5, 49.5, Math.toRadians(-55));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         Launcher launcher = new Launcher(hardwareMap);
+        Loader loader = new Loader(hardwareMap);
 
         waitForStart();
 
@@ -23,9 +24,14 @@ public class RedObeliskAuto extends LinearOpMode {
 
             Actions.runBlocking(
                     drive.actionBuilder(beginPose)
-                            .afterTime(1.25, launcher.launchOn())
-                            //add loader shit
-                            .waitSeconds(2)//change based on the time for launching
+                            .afterTime(0, launcher.launchOn())
+                            .afterTime(2, loader.loadOn())
+                            .afterTime(.5, loader.loadOff())
+                            .afterTime(.5, loader.loadOn())
+                            .afterTime(.5, loader.loadOff())
+                            .afterTime(.5, loader.loadOn())
+                            .afterTime(.5)
+                            .waitSeconds(2)//change based on the total time for launching
                             .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
                             .splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
                             .strafeTo(new Vector2d(24,-44))
