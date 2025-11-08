@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 @Autonomous(name = "RedObeliskAuto", group = "Autonomous")
-public class BlueObeliskAuto extends LinearOpMode {
+public class  BlueObeliskAuto extends LinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -24,15 +24,18 @@ public class BlueObeliskAuto extends LinearOpMode {
 
             Actions.runBlocking(
                     drive.actionBuilder(beginPose)
+                            //spin up launcher
                             .afterTime(0, launcher.launchOn())
+                            //launch atifacts
                             .afterTime(2, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, launcher.launchOff())
+                            .afterTime(2.5, loader.loadOff())
+                            .afterTime(3, loader.loadOn())
+                            .afterTime(3.5, loader.loadOff())
+                            .afterTime(4, loader.loadOn())
+                            .afterTime(4.5, loader.loadOff())
+                            .afterTime(5, launcher.launchOff())
                             .waitSeconds(5)//change based on the total time for launching
+                            //move to human player and push artifacts into human player zone
                             .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(45))
                             .splineToLinearHeading(new Pose2d(24,24,Math.toRadians(0)),Math.toRadians(90))
                             .strafeTo(new Vector2d(24,44))
@@ -44,14 +47,16 @@ public class BlueObeliskAuto extends LinearOpMode {
                             //launch artifacts
                             .afterTime(0, loader.loadOn())
                             .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(.5, launcher.launchOff())
+                            .afterTime(1, loader.loadOn())
+                            .afterTime(1.5, loader.loadOff())
+                            .afterTime(2, loader.loadOn())
+                            .afterTime(2.5, loader.loadOff())
+                            .afterTime(3, launcher.launchOff())
                             .waitSeconds(3)
                             //park
                             .strafeToLinearHeading(new Vector2d(38,32), Math.toRadians(90))
+
+
 
 
 
