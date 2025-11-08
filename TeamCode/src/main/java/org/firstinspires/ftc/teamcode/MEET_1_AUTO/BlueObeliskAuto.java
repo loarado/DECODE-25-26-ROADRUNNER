@@ -9,11 +9,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 @Autonomous(name = "RedObeliskAuto", group = "Autonomous")
-public class RedObeliskAuto extends LinearOpMode {
+public class BlueObeliskAuto extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        Pose2d beginPose = new Pose2d(-49.5, 49.5, Math.toRadians(-55));
+        Pose2d beginPose = new Pose2d(-49.5, -49.5, Math.toRadians(55));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         Launcher launcher = new Launcher(hardwareMap);
         Loader loader = new Loader(hardwareMap);
@@ -33,14 +33,14 @@ public class RedObeliskAuto extends LinearOpMode {
                             .afterTime(.5, loader.loadOff())
                             .afterTime(.5, launcher.launchOff())
                             .waitSeconds(5)//change based on the total time for launching
-                            .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
-                            .splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
-                            .strafeTo(new Vector2d(24,-44))
+                            .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(45))
+                            .splineToLinearHeading(new Pose2d(24,24,Math.toRadians(0)),Math.toRadians(90))
+                            .strafeTo(new Vector2d(24,44))
                             .waitSeconds(.5)
-                            .strafeToLinearHeading(new Vector2d(48,-54),Math.toRadians(-45))
+                            .strafeToLinearHeading(new Vector2d(48,54),Math.toRadians(45))
                             .waitSeconds(5)//amt of time for human player to load artifacts
                             .afterTime(0, launcher.launchOn())
-                            .strafeToLinearHeading(new Vector2d(-49.5,49.5), Math.toRadians(-55))
+                            .strafeToLinearHeading(new Vector2d(-49.5,-49.5), Math.toRadians(55))
                             //launch artifacts
                             .afterTime(0, loader.loadOn())
                             .afterTime(.5, loader.loadOff())
@@ -51,7 +51,7 @@ public class RedObeliskAuto extends LinearOpMode {
                             .afterTime(.5, launcher.launchOff())
                             .waitSeconds(3)
                             //park
-                            .strafeToLinearHeading(new Vector2d(38,-32), Math.toRadians(-90))
+                            .strafeToLinearHeading(new Vector2d(38,32), Math.toRadians(90))
 
 
 
