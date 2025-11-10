@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
-@Autonomous(name = "RedObeliskAuto", group = "Autonomous")
+@Autonomous(name = "BlueObeliskAuto", group = "Autonomous")
 public class  BlueObeliskAuto extends LinearOpMode {
 
     @Override
