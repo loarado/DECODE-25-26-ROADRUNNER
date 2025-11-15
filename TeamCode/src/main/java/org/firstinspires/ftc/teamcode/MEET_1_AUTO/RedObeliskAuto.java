@@ -13,7 +13,7 @@ public class RedObeliskAuto extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        Pose2d beginPose = new Pose2d(-49.5, 49.5, Math.toRadians(-55));
+        Pose2d beginPose = new Pose2d(-52.5, 52.5, Math.toRadians(-52.5));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         Launcher launcher = new Launcher(hardwareMap);
         Loader loader = new Loader(hardwareMap);
@@ -24,34 +24,24 @@ public class RedObeliskAuto extends LinearOpMode {
 
             Actions.runBlocking(
                     drive.actionBuilder(beginPose)
+                            .afterTime(0, loader.loadOff())
                             .afterTime(0, launcher.launchOn())
-                            .afterTime(2, loader.loadOn())
-                            .afterTime(2.5, loader.loadOff())
-                            .afterTime(3, loader.loadOn())
-                            .afterTime(3.5, loader.loadOff())
-                            .afterTime(4, loader.loadOn())
-                            .afterTime(4.5, loader.loadOff())
+                            .waitSeconds(2)
+                            .afterTime(0, loader.loadOn())
+                            .afterTime(.2, loader.loadOff())
+                            .afterTime(1.2, loader.loadOn())
+                            .afterTime(1.4, loader.loadOff())
+                            .afterTime(2.4, loader.loadOn())
+                            .afterTime(2.6, loader.loadOff())
+                            .afterTime(3.6, loader.loadOn())
+                            .afterTime(4, loader.loadOff())
                             .afterTime(5, launcher.launchOff())
                             .waitSeconds(5)//change based on the total time for launching
                             .strafeToLinearHeading(new Vector2d(0,0),Math.toRadians(-45))
-                            .splineToLinearHeading(new Pose2d(24,-24,Math.toRadians(0)),Math.toRadians(-90))
+                            .strafeToLinearHeading(new Vector2d(24,-24),Math.toRadians(0))
                             .strafeTo(new Vector2d(24,-44))
-                            .waitSeconds(.5)
                             .strafeToLinearHeading(new Vector2d(48,-54),Math.toRadians(-45))
-                            .waitSeconds(5)//amt of time for human player to load artifacts
-                            .afterTime(0, launcher.launchOn())
-                            .strafeToLinearHeading(new Vector2d(-49.5,49.5), Math.toRadians(-55))
-                            //launch artifacts
-                            .afterTime(0, loader.loadOn())
-                            .afterTime(.5, loader.loadOff())
-                            .afterTime(1, loader.loadOn())
-                            .afterTime(1.5, loader.loadOff())
-                            .afterTime(2, loader.loadOn())
-                            .afterTime(2.5, loader.loadOff())
-                            .afterTime(3, launcher.launchOff())
-                            .waitSeconds(3)
-                            //park
-                            .strafeToLinearHeading(new Vector2d(38,-32), Math.toRadians(-90))
+
 
 
 

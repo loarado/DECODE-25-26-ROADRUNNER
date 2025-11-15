@@ -30,7 +30,7 @@ public class Launcher {
     public class launchOn implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            launcher.setPower(.55);
+            launcher.setPower(.57);
             return false;
 
         }

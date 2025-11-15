@@ -288,7 +288,7 @@ public final class TuningOpModes {
         }
 
 
-        manager.register(metaForClass(AngularRampLogger.class), new AngularRampLogger(dvf));
+      /*  manager.register(metaForClass(AngularRampLogger.class), new AngularRampLogger(dvf));
         manager.register(metaForClass(ForwardPushTest.class), new ForwardPushTest(dvf));
         manager.register(metaForClass(ForwardRampLogger.class), new ForwardRampLogger(dvf));
         manager.register(metaForClass(LateralPushTest.class), new LateralPushTest(dvf));
@@ -304,7 +304,7 @@ public final class TuningOpModes {
         manager.register(metaForClass(OTOSAngularScalarTuner.class), new OTOSAngularScalarTuner(dvf));
         manager.register(metaForClass(OTOSLinearScalarTuner.class), new OTOSLinearScalarTuner(dvf));
         manager.register(metaForClass(OTOSHeadingOffsetTuner.class), new OTOSHeadingOffsetTuner(dvf));
-        manager.register(metaForClass(OTOSPositionOffsetTuner.class), new OTOSPositionOffsetTuner(dvf));
+        manager.register(metaForClass(OTOSPositionOffsetTuner.class), new OTOSPositionOffsetTuner(dvf));*/
 
         FtcDashboard.getInstance().withConfigRoot(configRoot -> {
             for (Class<?> c : Arrays.asList(

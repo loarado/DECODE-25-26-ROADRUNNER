@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
-@Autonomous(name = "EasyTest", group = "Autonomous")
+/*@Autonomous(name = "EasyTest", group = "Autonomous")
 public class EasyTest extends LinearOpMode {
 
     @Override
@@ -32,4 +32,4 @@ public class EasyTest extends LinearOpMode {
                             .build());
 
     }
-}
+}*/

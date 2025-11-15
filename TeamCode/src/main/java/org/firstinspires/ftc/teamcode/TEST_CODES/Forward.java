@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
-@Autonomous(name = "Forward", group = "Autonomous")
+/*@Autonomous(name = "Forward", group = "Autonomous")
 public class Forward extends LinearOpMode {
 
     @Override
@@ -28,4 +28,4 @@ public class Forward extends LinearOpMode {
                             .build());
 
     }
-}
+}*/
