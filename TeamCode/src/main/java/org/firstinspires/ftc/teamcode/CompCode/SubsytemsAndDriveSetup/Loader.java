@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.MEET_1_AUTO;
+package org.firstinspires.ftc.teamcode.CompCode.SubsytemsAndDriveSetup;
 import androidx.annotation.NonNull;
 
 // RR-specific imports
@@ -6,21 +6,14 @@ import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
 
 // Non-RR imports
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.ServoController;
-import com.qualcomm.robotcore.hardware.ServoControllerEx;
 import com.qualcomm.robotcore.hardware.CRServo;
-import com.qualcomm.robotcore.hardware.CRServoImpl;
-import com.qualcomm.robotcore.hardware.CRServoImplEx;
+
 public class Loader {
     public CRServo loaderright;
     public CRServo loaderleft;
 
-    Loader(HardwareMap hardwareMap){
+    public void init(HardwareMap hardwareMap){
         loaderright = hardwareMap.get(CRServo.class, ("Right Loader"));
         loaderright.setDirection(CRServo.Direction.REVERSE);
         loaderleft = hardwareMap.get(CRServo.class, ("Left Loader"));
@@ -49,5 +42,13 @@ public class Loader {
 
     }
     public Action loadOff() { return new loadOff();}
+    public void on(){
+        loaderleft.setPower(1);
+        loaderright.setPower(1);
+    }
+    public void off(){
+        loaderleft.setPower(0);
+        loaderright.setPower(0);
+    }
 }
 

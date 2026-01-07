@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.MEET_1_AUTO;
+package org.firstinspires.ftc.teamcode.CompCode.Autonomous;
 
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.Vector2d;
@@ -6,6 +6,8 @@ import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.teamcode.CompCode.SubsytemsAndDriveSetup.Launcher;
+import org.firstinspires.ftc.teamcode.CompCode.SubsytemsAndDriveSetup.Loader;
 import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 @Autonomous(name = "RedObeliskAuto", group = "Autonomous")
@@ -15,8 +17,10 @@ public class RedObeliskAuto extends LinearOpMode {
     public void runOpMode() {
         Pose2d beginPose = new Pose2d(-49.5, 49.5, Math.toRadians(-55));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
-        Launcher launcher = new Launcher(hardwareMap);
-        Loader loader = new Loader(hardwareMap);
+        Launcher launcher = new Launcher();
+        Loader loader = new Loader();
+        loader.init(hardwareMap);
+        launcher.init(hardwareMap);
 
         waitForStart();
 
