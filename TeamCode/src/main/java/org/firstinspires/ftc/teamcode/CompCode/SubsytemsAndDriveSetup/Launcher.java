@@ -1,6 +1,5 @@
-package org.firstinspires.ftc.teamcode.MEET_1_AUTO;
+package org.firstinspires.ftc.teamcode.CompCode.SubsytemsAndDriveSetup;
 
-import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 
 // RR-specific imports
@@ -13,24 +12,24 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-import java.time.OffsetDateTime;
-
 public class Launcher {
 
     public DcMotorEx launcher;
 
-    Launcher(HardwareMap hardwareMap){
+    public void init(HardwareMap hardwareMap){
 
         launcher = hardwareMap.get(DcMotorEx.class, ("launcher"));
         launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         launcher.setDirection(DcMotorSimple.Direction.REVERSE);
+        launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
 
     public class launchOn implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            launcher.setPower(.57);
+            /*change to launcher.setVelocity*/
+            launcher.setVelocity(1800);
             return false;
 
         }
@@ -41,10 +40,19 @@ public class Launcher {
     public class launchOff implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            launcher.setPower(0);
+            launcher.setVelocity(0);
             return false;
         }
     }
     public Action launchOff() {return new launchOff();}
 
+    public void on() {
+        launcher.setVelocity(1800);
+    }
+
+    public void off() {
+        launcher.setVelocity(0);
+    }
+
 }
+//can you rewrite the opmode code to use this new launcher class
