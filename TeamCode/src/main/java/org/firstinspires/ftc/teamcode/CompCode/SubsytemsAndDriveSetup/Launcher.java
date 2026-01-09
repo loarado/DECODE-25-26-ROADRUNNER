@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
 public class Launcher {
 
@@ -22,6 +23,10 @@ public class Launcher {
         launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         launcher.setDirection(DcMotorSimple.Direction.REVERSE);
         launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
+        /*PIDFCoefficients pidfCoefficients = new PIDFCoefficients(67,0,0,41);
+        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);*/
     }
 
 
