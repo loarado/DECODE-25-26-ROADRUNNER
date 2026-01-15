@@ -20,13 +20,14 @@ boolean lastRB = false;
         drive.init(hardwareMap);
         launcher.init(hardwareMap);
         loader.init(hardwareMap);
+
     }
 
     @Override
     public void loop() {
-        forward = gamepad1.left_stick_y;
+       /* forward = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
-        rotate = gamepad1.right_stick_x;
+        rotate = gamepad1.right_stick_x;*/
         boolean currentRB = gamepad1.right_bumper;
 
         if(gamepad1.a){
@@ -45,7 +46,6 @@ boolean lastRB = false;
             }
         }
         lastRB = currentRB;
-        drive.drive(forward, strafe, rotate);
+        drive.drive(- gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
     }
 }
-//can you implement those changes into this code

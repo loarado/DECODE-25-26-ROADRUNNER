@@ -13,24 +13,25 @@ public class MecanumDrive {
     private IMU imu;
 
     public void init(HardwareMap hardwareMap){
-        leftFront=hardwareMap.get(DcMotorEx.class, "lF");
-        leftBack=hardwareMap.get(DcMotorEx.class, "lB");
-        rightFront=hardwareMap.get(DcMotorEx.class, "rF");
-        rightBack=hardwareMap.get(DcMotorEx.class, "rB");
+        leftFront=hardwareMap.get(DcMotorEx.class, "lf");
+        leftBack=hardwareMap.get(DcMotorEx.class, "lb");
+        rightFront=hardwareMap.get(DcMotorEx.class, "rf");
+        rightBack=hardwareMap.get(DcMotorEx.class, "rb");
 
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
 
         //----------------IMU--------------
         imu= hardwareMap.get(IMU.class,"imu");
 
         RevHubOrientationOnRobot revHubOrientation = new RevHubOrientationOnRobot(
-                RevHubOrientationOnRobot.LogoFacingDirection.UP,
+                RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
                 RevHubOrientationOnRobot.UsbFacingDirection.FORWARD
         );
         imu.initialize(new IMU.Parameters(revHubOrientation));
@@ -57,3 +58,4 @@ public class MecanumDrive {
 
     }
 }
+

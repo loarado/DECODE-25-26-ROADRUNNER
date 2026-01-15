@@ -20,8 +20,7 @@ public class Launcher {
     public void init(HardwareMap hardwareMap){
 
         launcher = hardwareMap.get(DcMotorEx.class, ("launcher"));
-        launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        launcher.setDirection(DcMotorSimple.Direction.REVERSE);
+        launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 

@@ -42,6 +42,7 @@ public class Loader {
 
     }
     public Action loadOff() { return new loadOff();}
+
     public void on(){
         loaderleft.setPower(1);
         loaderright.setPower(1);
