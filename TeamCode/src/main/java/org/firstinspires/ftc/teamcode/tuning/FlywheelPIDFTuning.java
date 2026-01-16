@@ -7,11 +7,14 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
+import org.firstinspires.ftc.teamcode.CompCode.SubsytemsAndDriveSetup.Loader;
+
 @TeleOp
 
 public class FlywheelPIDFTuning extends OpMode {
+    Loader loader = new Loader();
     public DcMotorEx flyWheelMotor;
-    public double highVelocity = 1620;
+    public double highVelocity = 1800;
     public double lowVelocity = 900;
 
     double curTargetVelocity = highVelocity;
@@ -30,11 +33,14 @@ public class FlywheelPIDFTuning extends OpMode {
     @Override
     public void init() {
         flyWheelMotor = hardwareMap.get(DcMotorEx.class,"launcher");
+
         flyWheelMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
         PIDFCoefficients pidfCoefficients = new PIDFCoefficients(P, 0, 0, F);
         flyWheelMotor.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);
+
+        loader.init(hardwareMap);
 
 
 
@@ -69,6 +75,9 @@ public class FlywheelPIDFTuning extends OpMode {
         }
         if (gamepad1.dpadDownWasPressed()){
             P -= stepSizes[stepIndex];
+        }
+        if (gamepad1.a){
+            loader.on();
         }
 
         PIDFCoefficients pidfCoefficients = new PIDFCoefficients(P, 0, 0, F);

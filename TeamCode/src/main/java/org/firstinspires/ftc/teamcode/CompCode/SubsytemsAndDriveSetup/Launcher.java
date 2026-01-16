@@ -24,8 +24,8 @@ public class Launcher {
         launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
-        /*PIDFCoefficients pidfCoefficients = new PIDFCoefficients(67,0,0,41);
-        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);*/
+        PIDFCoefficients pidfCoefficients = new PIDFCoefficients(170,0,0,12.9);
+        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);
     }
 
 
@@ -51,12 +51,16 @@ public class Launcher {
     public Action launchOff() {return new launchOff();}
 
     public void on() {
-        launcher.setVelocity(1800);
+        launcher.setVelocity(1620);
     }
 
     public void off() {
         launcher.setVelocity(0);
     }
 
+    public double getVelocity(){
+        double velocity = launcher.getVelocity();
+        return velocity;
+    }
 }
 //can you rewrite the opmode code to use this new launcher class
