@@ -13,7 +13,7 @@ Launcher launcher = new Launcher();
 Loader loader = new Loader();
 double forward, strafe, rotate;
 boolean launcherOn = false;
-boolean lastRB = false;
+boolean lastLB = false;
 
     @Override
     public void init() {
@@ -28,15 +28,15 @@ boolean lastRB = false;
        /* forward = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
         rotate = gamepad1.right_stick_x;*/
-        boolean currentRB = gamepad1.right_bumper;
+        boolean currentLB = gamepad2.left_bumper;
 
-        if(gamepad1.a){
+        if(gamepad2.a){
             loader.on();
         }
         else {
             loader.off();
         }
-        if(currentRB && !lastRB){
+        if(currentLB && !lastLB){
             launcherOn = !launcherOn;
             if (launcherOn){
                 launcher.on();
@@ -45,7 +45,7 @@ boolean lastRB = false;
                 launcher.off();
             }
         }
-        lastRB = currentRB;
+        lastLB = currentLB;
         drive.drive(- gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
         telemetry.addData("Flywheel Velocity", launcher.getVelocity());
 

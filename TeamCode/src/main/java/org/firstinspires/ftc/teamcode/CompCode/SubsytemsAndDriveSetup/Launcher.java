@@ -24,8 +24,8 @@ public class Launcher {
         launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
-        PIDFCoefficients pidfCoefficients = new PIDFCoefficients(170,0,0,12.9);
-        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);
+       /* PIDFCoefficients pidfCoefficients = new PIDFCoefficients(170,0,0,12.9);
+        launcher.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);*/
     }
 
 
@@ -33,7 +33,7 @@ public class Launcher {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             /*change to launcher.setVelocity*/
-            launcher.setVelocity(1800);
+            launcher.setVelocity(2060);
             return false;
 
         }
@@ -51,7 +51,7 @@ public class Launcher {
     public Action launchOff() {return new launchOff();}
 
     public void on() {
-        launcher.setVelocity(1620);
+        launcher.setVelocity(2060);
     }
 
     public void off() {
