@@ -12,6 +12,9 @@ public class MecanumDrive {
     private DcMotorEx leftFront, leftBack, rightFront, rightBack;
     private IMU imu;
 
+    double maxPower = 1;
+    double maxSpeed = 1;
+
     public void init(HardwareMap hardwareMap){
         leftFront=hardwareMap.get(DcMotorEx.class, "lf");
         leftBack=hardwareMap.get(DcMotorEx.class, "lb");
@@ -37,14 +40,15 @@ public class MecanumDrive {
         imu.initialize(new IMU.Parameters(revHubOrientation));
 
     }
+
+
     public void drive (double forward, double strafe, double rotate){
         double leftFrontPower = forward + strafe + rotate;
         double leftBackPower = forward - strafe + rotate;
         double rightFrontPower = forward - strafe - rotate;
         double rightBackPower = forward + strafe - rotate;
 
-        double maxPower = 1;
-        double maxSpeed = 1;
+
 
         maxPower = Math.max(maxPower, Math.abs(leftFrontPower));
         maxPower = Math.max(maxPower, Math.abs(leftBackPower));
@@ -56,6 +60,21 @@ public class MecanumDrive {
         rightFront.setPower(maxSpeed * (rightFrontPower / maxPower));
         rightBack.setPower(maxSpeed * (rightBackPower / maxPower));
 
+
+
     }
+
+
+    public void slow(){
+        maxSpeed = .5;
+
+    }
+    public void fast(){
+        maxSpeed = 1;
+    }
+
 }
+
+
+
 

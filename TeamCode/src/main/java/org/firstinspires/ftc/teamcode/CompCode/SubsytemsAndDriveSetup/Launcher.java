@@ -33,7 +33,7 @@ public class Launcher {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             /*change to launcher.setVelocity*/
-            launcher.setVelocity(2060);
+            launcher.setPower(.8);
             return false;
 
         }
@@ -44,14 +44,14 @@ public class Launcher {
     public class launchOff implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            launcher.setVelocity(0);
+            launcher.setPower(0);
             return false;
         }
     }
     public Action launchOff() {return new launchOff();}
 
     public void on() {
-        launcher.setVelocity(2060);
+        launcher.setPower(.8);
     }
 
     public void off() {
